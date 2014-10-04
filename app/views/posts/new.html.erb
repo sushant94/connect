@@ -1,0 +1,75 @@
+<% if @post.errors.any? %>
+<div class="alert alert-dismissable alert-danger">
+    <ul>
+        <% @post.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+        <% end %>
+    </ul>
+</div>
+</div>
+<% end %>
+
+<div class='col-lg-8 col-lg-offset-2 bsa well'>
+<legend>New Post</legend>
+<%= form_for @post, url: {action: "create"},html: {class: "form-horizontal"} do |f| %>
+
+<fieldset>
+    <div class="form-group">
+        <%= f.label :title,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :title, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :author,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :author, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :category,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :category, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :content,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_area :content, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :event,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.check_box :event, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :event_start,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.datetime_select :event_start,start_year: Time.now.year,prompt: true ,class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :event_end,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.datetime_select :event_end,start_year: Time.now.year,prompt: true  ,class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :venue,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :venue, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <dvi class="col-lg-2"></div>
+            <div class="col-lg-6">
+                <%= f.submit "Post", class: 'btn btn-primary col-lg-4 col-lg-offset-8' %>
+            </div>
+
+        </div>
+        <% end %>
+    </fieldset>
+</div>
+

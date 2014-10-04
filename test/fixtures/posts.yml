@@ -2,12 +2,22 @@
 
 one:
   title: MyString
+  user_id: 1
+  author: MyString
+  category: MyString
   content: MyText
-  author_id: 1
-  type_id: 1
+  event: false
+  event_start: 2014-10-04 16:02:33
+  event_end: 2014-10-04 16:02:33
+  venue: MyString
 
 two:
   title: MyString
+  user_id: 1
+  author: MyString
+  category: MyString
   content: MyText
-  author_id: 1
-  type_id: 1
+  event: false
+  event_start: 2014-10-04 16:02:33
+  event_end: 2014-10-04 16:02:33
+  venue: MyString

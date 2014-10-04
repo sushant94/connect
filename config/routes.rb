@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+    devise_for :users
+    root "application#home"
+    post 'post/create' => 'posts#create'
+    get 'post/new' => 'posts#new'
+    get 'post/success' => 'posts#success'
+    get 'post/fail' => 'posts#fail'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
