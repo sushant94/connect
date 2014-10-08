@@ -29,13 +29,48 @@
     <div class="form-group">
         <%= f.label :category,class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
-            <%= f.text_field :category, class: 'form-control' %>
+            <% groupoptions =
+                                                [
+                                                    ["General",
+                                                        ["Student Council",
+                                                        "Administration",
+                                                        "First Year Students",
+                                                        "Engineer",
+                                                        "Incident",
+                                                        "Talks and Seminars ",
+                                                        "College Sports News"]
+                                                    ],
+                                                    ["Technical Clubs",
+                                                        ["IE",
+                                                        "CSI",
+                                                        "IEEE",
+                                                        "ISTE",
+                                                        "IET "]
+                                                    ],
+                                                    ["Cultural Clubs",
+                                                        ["Music Club",
+                                                        "DDFC",
+                                                        "Films Club",
+                                                        "Spic Mackay",
+                                                        "Artist Forum & MACD",
+                                                        "Others"]
+                                                    ],
+                                                    ["Non-Tech",
+                                                        ["Rotract",
+                                                        "Hobbies Club",
+                                                        "E-Cell",
+                                                        "LSD",
+                                                        "Racing Club"]
+                                                    ],
+                                                ]
+%>
+            <%= f.select :category,grouped_options_for_select(groupoptions), class: "form-control" %>
         </div>
     </div>
     <div class="form-group">
         <%= f.label :content,class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
-            <%= f.text_area :content, class: 'form-control' %>
+            <%= f.text_area :content, rows: 10, class: 'form-control' %>
         </div>
     </div>
     <div class="form-group">
@@ -48,12 +83,6 @@
         <%= f.label :event_start,class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
             <%= f.datetime_select :event_start,start_year: Time.now.year,prompt: true ,class: 'form-control' %>
-        </div>
-    </div>
-    <div class="form-group">
-        <%= f.label :event_end,class: 'col-lg-2 control-label' %>
-        <div class="col-lg-6">
-            <%= f.datetime_select :event_end,start_year: Time.now.year,prompt: true  ,class: 'form-control' %>
         </div>
     </div>
     <div class="form-group">
