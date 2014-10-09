@@ -13,7 +13,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, '106.186.23.15'
-set :deploy_to, '/home/deploy/NITK-Connect/'
+set :deploy_to, '/home/deploy/NITK-Connect'
 set :repository, 'https://github.com/sriram-rao/connect'
 set :branch, 'master'
 set :user, 'deploy'
