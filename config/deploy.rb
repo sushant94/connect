@@ -73,7 +73,7 @@ task :deploy => :environment do
 
     to :launch do
       queue "touch #{deploy_to}/tmp/restart.txt"
-      invoke :'unicorn:restart'
+      invoke :'unicorn:start'
     end
   end
 end
