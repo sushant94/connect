@@ -19,6 +19,8 @@ gem 'devise'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'mysql'
+gem 'unicorn'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -33,7 +35,10 @@ gem 'pg', group: :production
 gem 'websocket-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-
+gem 'rack-cors', :require => 'rack/cors'
+gem 'mina'
+gem 'mina-sidekiq', :require => false
+gem 'mina-unicorn', :require => false
 # Use unicorn as the app server
 # gem 'unicorn'
 
