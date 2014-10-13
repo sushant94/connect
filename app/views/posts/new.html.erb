@@ -11,7 +11,7 @@
 
 <div class='col-lg-8 col-lg-offset-2 bsa well'>
 <legend>New Post</legend>
-<%= form_for @post, url: {action: "create"},html: {class: "form-horizontal"} do |f| %>
+<%= form_for @post, url: {action: "create"},html: {class: "form-horizontal",multipart: true} do |f| %>
 
 <fieldset>
     <div class="form-group">
@@ -70,6 +70,12 @@
         <%= f.label :content,class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
             <%= f.text_area :content, rows: 10, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :avatar,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.file_field :avatar, class: 'form-control' %>
         </div>
     </div>
     <div class="form-group">
