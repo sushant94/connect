@@ -15,7 +15,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :domain, '106.186.23.15'
 set :deploy_to, '/home/deploy/NITK-Connect'
 set :repository, 'https://github.com/sriram-rao/connect'
-set :branch, 'master'
+set :branch, 'websockets'
 set :user, 'deploy'
 set :forward_agent, true
 set :port, '22'
