@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+    before_action :headers
 
     #params[:after] should be UNIX timestamp.
     # Specify category for filtering.
