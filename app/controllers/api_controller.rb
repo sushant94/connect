@@ -10,7 +10,13 @@ class ApiController < ApplicationController
         else
             posts = Post.where("created_at > ? AND category = ?", Time.at(params[:after].to_i).to_datetime, params[:category]).order("created_at DESC")
         end
-        render json: posts
+
+        p = posts.as_json
+
+        p.zip(posts).each do |x,y|
+            x["image_url"] = y.avatar.url(:medium)
+        end
+        render json: p
     end
 
 end
