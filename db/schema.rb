@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141013152732) do
 
   create_table "feeds", force: true do |t|
@@ -27,6 +28,9 @@ ActiveRecord::Schema.define(version: 20141013152732) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+ActiveRecord::Schema.define(version: 20141004103233) do
+>>>>>>> parent of 2bef91b... Added websockets support
 
   create_table "posts", force: true do |t|
     t.string   "title"
