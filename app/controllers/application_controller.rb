@@ -11,9 +11,10 @@
     if !current_user
       redirect_to :new_user_session
     else
-      redirect_to '/post/new'
+      redirect_to '/post/dashboard'
     end
   end
+
   def initializeCall
       posts = Post.all
       tags = Tag.all

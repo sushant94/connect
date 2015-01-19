@@ -10,8 +10,8 @@
 <% end %>
 
 <div class='col-lg-8 col-lg-offset-2 bsa well'>
-<legend>New Post</legend>
-<%= form_for @post, url: {action: "create"},html: {class: "form-horizontal", multipart: true} do |f| %>
+<legend>Edit Post</legend>
+<%= form_for @post, url: {action: "update", id: @post.id},html: {class: "form-horizontal", multipart: true} do |f| %>
 
 <fieldset>
     <div class="form-group">
@@ -103,16 +103,14 @@
     <div class="form-group">
         <div class="col-lg-2"></div>
             <div class="col-lg-4">
-                <%= f.submit "Post", class: 'btn btn-primary col-lg-4 col-lg-offset-8' %>
+                <%= f.submit "Edit", class: 'btn btn-primary col-lg-4 col-lg-offset-8' %>
                 <br>
                 <br>
                 <br>
                 <%= link_to "Dashboard", {action: 'dashboard'}, {class: 'btn btn-success col-lg-4 col-lg-offset-8'} %>
             </div>
-            </div>
         </div>
         <% end %>
     </fieldset>
-
 </div>
 
