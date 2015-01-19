@@ -4,13 +4,23 @@
   <title>Connect</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'ckeditor/ckeditor.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar navbar-default">
-    <a class="navbar-brand" href="/">NITK-CONNECT</a>
-</div>
-<%= yield %>
-
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	      if ($('textarea.ckeditor').length > 0) {
+	          var data = $('textarea.ckeditor');
+	          $.each(data, function(i) {
+	              CKEDITOR.replace(data[i].id);
+	          });
+	      }
+	  });
+	</script>
+	<div class="navbar navbar-default">
+	    <a class="navbar-brand" href="/">NITK-CONNECT</a>
+	</div>
+	<%= yield %>
 </body>
 </html>
