@@ -107,6 +107,10 @@
                 <br>
                 <br>
                 <br>
+                <%= link_to "Delete Post", {action: 'destroy', id: @post.id}, {class: 'btn btn-danger col-lg-4 col-lg-offset-8'} %>
+                <br>
+                <br>
+                <br>
                 <%= link_to "Dashboard", {action: 'dashboard'}, {class: 'btn btn-success col-lg-4 col-lg-offset-8'} %>
             </div>
         </div>

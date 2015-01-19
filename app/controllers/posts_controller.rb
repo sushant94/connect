@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_post, only: [:edit, :update]
+    before_action :set_post, only: [:edit, :update, :destroy]
 
     attr_accessor :image
 
@@ -46,6 +46,17 @@ class PostsController < ApplicationController
             render 'edit'
         end
     end
+
+    def destroy
+        if @post.user_id != current_user.id
+            redirect_to action: 'dashboard'
+        end
+
+        if @post.destroy
+            redirect_to action: 'dashboard'
+        end
+    end
+
 
     private
 

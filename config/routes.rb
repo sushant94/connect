@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'post/show' => 'posts#show'
     get 'post/edit' => 'posts#edit'
     patch 'post/update' => 'posts#update'
+    get 'post/destroy' => 'posts#destroy'
 
     get '/api/list' => 'api#list'
   # The priority is based upon order of creation: first created -> highest priority.
