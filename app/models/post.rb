@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Post < ActiveRecord::Base
     validates :title,:author,:content, presence: true
     validate :validate_event

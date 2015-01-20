@@ -1,0 +1,21 @@
+<div class='col-lg-4 col-lg-offset-4 bsa jumbotron'>
+<% @posts.each do |p| %>
+	<%= p.title %></td>
+  	<br>
+  	<br>
+  	<%= p.created_at %></td>
+  	<br>
+  	<br>
+  	<%= link_to "Edit post", action: 'edit' , id: p.id %>
+  	<br>
+  	<br>
+  	<p>
+  	--------------------------------------------------------------------------------------
+  	</p>
+  	<% end %>
+<%= link_to "Back to Dashboard", {action: 'dashboard'}, {class: 'btn btn-primary'} %>
+</div>	
+
+
+
+
