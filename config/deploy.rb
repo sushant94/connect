@@ -16,7 +16,7 @@ set :term_mode, nil
 set :domain, '106.186.23.15'
 set :deploy_to, '/home/deploy/NITK-Connect'
 set :repository, 'https://github.com/sushant94/connect'
-set :branch, 'websockets'
+set :branch, 'development'
 set :user, 'deploy'
 set :forward_agent, true
 set :port, '22'
