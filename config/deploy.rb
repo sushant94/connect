@@ -12,6 +12,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+set :term_mode, nil
 set :domain, '106.186.23.15'
 set :deploy_to, '/home/deploy/NITK-Connect'
 set :repository, 'https://github.com/sriram-rao/connect'
