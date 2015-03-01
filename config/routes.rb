@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     devise_for :users
     root "application#home"
     post 'post/create' => 'posts#create'
+    post 'post/create_live' => 'posts#create_live'
     get 'post/new' => 'posts#new'
     get 'post/success' => 'posts#success'
     get 'post/fail' => 'posts#fail'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     get 'post/edit' => 'posts#edit'
     patch 'post/update' => 'posts#update'
     get 'post/destroy' => 'posts#destroy'
+    get 'post/live_news' => 'posts#live_news'
 
     get '/api/list' => 'api#list'
   # The priority is based upon order of creation: first created -> highest priority.

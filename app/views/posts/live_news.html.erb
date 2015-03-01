@@ -1,0 +1,145 @@
+<% if @post.errors.any? %>
+<div class="alert alert-dismissable alert-danger">
+    <ul>
+        <% @post.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+        <% end %>
+    </ul>
+</div>
+</div>
+<% end %>
+
+<div class='col-lg-8 col-lg-offset-2 bsa well'>
+<legend>Live News</legend>
+<%= form_for @post, url: {action: "create_live"},html: {class: "form-horizontal", multipart: true} do |f| %>
+
+<fieldset>
+    <div class="form-group">
+        <%= f.label :title,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :title, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :author,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :author, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :category,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <% groupoptions =
+                                                [
+                                                    ["General",
+                                                        ["Student Council",
+                                                        "Engineer",
+                                                        "Incident",
+                                                        "Talks and Seminars ",
+                                                        "College Sports"]
+                                                    ],
+                                                    ["Technical Clubs",
+                                                        ["IE",
+                                                        "CSI",
+                                                        "IEEE",
+                                                        "ISTE",
+                                                        "IET "]
+                                                    ],
+                                                    ["Cultural Clubs",
+                                                        ["Music Club",
+                                                        "DDFC",
+                                                        "Spic Macay",
+                                                        "Art & Design",
+							"Kannada Vedika",
+							"LSD"
+                                                        ]
+                                                    ],
+                                                    ["Special Interest Clubs",
+                                                        ["Rotaract",
+							"Flying and Robotics Club",
+                                                        "Hobbies Club",
+                                                        "E-Cell",
+                                                        "Racing Club"]
+                                                    ],
+						    ["",
+							["Coupons",
+							"Live News"]
+						    ]
+                                                ]
+%>
+    <%= f.select :category,grouped_options_for_select(groupoptions), class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :content,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.cktext_area :content, rows: 10, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :avatar,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.file_field :avatar, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :event,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.check_box :event, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :live_news,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.check_box :live_news, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :event_start,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.datetime_select :event_start,start_year: Time.now.year,prompt: true ,class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :venue,class: 'col-lg-2 control-label' %>
+        <div class="col-lg-6">
+            <%= f.text_field :venue, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <%= f.submit "Write Live News", class: 'btn btn-primary col-lg-4 col-lg-offset-8' %>
+            </div>
+    </div>
+        <br>
+    <div class="form-group">
+        <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+               <%= link_to "Dashboard", {action: 'dashboard'}, {class: 'btn btn-success col-lg-4 col-lg-offset-8'} %> 
+            </div>
+        </div> 
+    </div>
+</div>
+<% end %>
+</fieldset>
+</div>
+
+<div class='col-lg-8 col-lg-offset-2 bsa well'>
+    <legend>Current News</legend>  
+    <% @posts.each do |p| %>
+        <%= p.title %></td>
+        <br>
+        <br>
+        <%= p.created_at %></td>
+        <br>
+        <br>
+        <%= link_to "Edit live news", action: 'edit' , id: p.id %>
+        <br>
+        <br>
+        <p>
+        --------------------------------------------------------------------------------------
+        </p>
+        <% end %>
+</div>
+

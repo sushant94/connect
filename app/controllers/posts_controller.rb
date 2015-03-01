@@ -8,6 +8,22 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
+    def live_news
+        @post = Post.new
+        @posts = Post.all.where(:user_id => current_user.id, :live_news => 1)
+    end
+
+    def create_live
+        @post = Post.new(post_params)
+        if @post.save
+            @post.user_id = current_user.id
+            @post.save
+            redirect_to action: 'success'
+        else
+            render 'live_news'
+        end
+    end
+
     def create
         @post = Post.new(post_params)
         if @post.save
@@ -64,7 +80,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:title, :author, :category, :content, :event, :event_start, :event_end, :venue,:avatar)
+        params.require(:post).permit(:title, :author, :category, :content, :event, :event_start, :event_end, :venue,:avatar, :live_news)
     end
 
     def set_post
