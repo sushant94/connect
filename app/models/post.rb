@@ -14,4 +14,10 @@ class Post < ActiveRecord::Base
         return true
     end
 
+    def notify_users
+        filtered = self.content
+        filtered.gsub!(/[^a-zA-Z0-9]/, "")
+        temp = Rails.root.join('notifications', 'send.js').to_s
+        `node #{temp} #{self.title} #{truncate(filtered, 30)}`
+    end
 end
