@@ -10,16 +10,16 @@
 <% end %>
 
 <div class='col-lg-8 col-lg-offset-2 bsa well'>
-<legend>Live News</legend>
-<%= form_for @post, url: {action: "create_live"},html: {class: "form-horizontal", multipart: true} do |f| %>
+<legend>Edit Post</legend>
+<%= form_for @post, url: {action: "update_live", id: @post.id},html: {class: "form-horizontal", multipart: true} do |f| %>
 
 <fieldset>
     <div class="form-group">
         <%= f.label :title,class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
-            <% groupoptions =
+                        <% groupoptions =
                                 [
-                                    ["",
+                                    [" ",
                                         [
                                         "Incident Day 1",
                                         "Incident Day 2",
@@ -34,7 +34,6 @@
         <%= f.select :title,grouped_options_for_select(groupoptions), class: "form-control" %>
         </div>
     </div>
-
     <div class="form-group">
         <%= f.label :content,class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
@@ -47,42 +46,20 @@
             <%= f.file_field :avatar, class: 'form-control' %>
         </div>
     </div>
-
     <div class="form-group">
         <div class="col-lg-2"></div>
             <div class="col-lg-4">
-                <%= f.submit "Write Live News", class: 'btn btn-primary col-lg-4 col-lg-offset-8' %>
+                <%= f.submit "Edit", class: 'btn btn-primary col-lg-4 col-lg-offset-8' %>
+                <br>
+                <br>
+                <br>
+                <%= link_to "Delete Post", {action: 'destroy', id: @post.id}, {class: 'btn btn-danger col-lg-4 col-lg-offset-8'} %>
+                <br>
+                <br>
+                <br>
+                <%= link_to "Dashboard", {action: 'dashboard'}, {class: 'btn btn-success col-lg-4 col-lg-offset-8'} %>
             </div>
-    </div>
-        <br>
-    <div class="form-group">
-        <div class="col-lg-2"></div>
-            <div class="col-lg-4">
-               <%= link_to "Dashboard", {action: 'dashboard'}, {class: 'btn btn-success col-lg-4 col-lg-offset-8'} %> 
-            </div>
-        </div> 
-    </div>
-</div>
-<% end %>
-</fieldset>
-</div>
-
-<div class='col-lg-8 col-lg-offset-2 bsa well'>
-    <legend>Current News</legend> 
-    <% if !@posts.nil? %>
-        <% @posts.each do |p| %>
-            <%= p.title %></td>
-            <br>
-            <br>
-            <%= p.created_at %></td>
-            <br>
-            <br>
-            <%= link_to "Edit live news", action: 'edit_live' , id: p.id %>
-            <br>
-            <br>
-            <p>
-            --------------------------------------------------------------------------------------
-            </p>
+        </div>
         <% end %>
-    <% end %>
+    </fieldset>
 </div>

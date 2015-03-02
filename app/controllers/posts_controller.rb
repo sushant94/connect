@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_post, only: [:edit, :update, :destroy]
+    before_action :set_post, only: [:edit, :update, :destroy, :edit_live, :update_live]
 
     attr_accessor :image
 
@@ -13,8 +13,30 @@ class PostsController < ApplicationController
         @posts = Post.all.where(:user_id => current_user.id, :live_news => 1)
     end
 
+    def update_live
+        if @post.update(live_post_params)
+            redirect_to action: 'success'
+        else
+            render 'edit_live'
+        end
+    end
+
+
+    def edit
+        if @post.user_id != current_user.id
+            redirect_to action: 'dashboard'
+        end
+    end
+
+    def edit_live
+        if @post.user_id != current_user.id
+            redirect_to action: 'dashboard'
+        end
+    end
+
     def create_live
-        @post = Post.new(post_params)
+        @post = Post.new(live_post_params)
+        @post.live_news = 1
         if @post.save
             @post.user_id = current_user.id
             @post.save
@@ -48,13 +70,6 @@ class PostsController < ApplicationController
     def dashboard
     end
 
-    def edit
-        if @post.user_id != current_user.id
-            redirect_to action: 'dashboard'
-        end
-
-    end
-
     def update
         if @post.update(post_params)
             redirect_to action: 'success'
@@ -83,9 +98,12 @@ class PostsController < ApplicationController
         params.require(:post).permit(:title, :author, :category, :content, :event, :event_start, :event_end, :venue,:avatar, :live_news)
     end
 
+    def live_post_params
+        params.require(:post).permit(:title, :content, :avatar)
+    end
+
     def set_post
         @post = Post.find(params[:id])
     end
 
 end
-
