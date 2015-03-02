@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301173335) do
+ActiveRecord::Schema.define(version: 20150302213822) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20150301173335) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.string   "author"
-    t.string   "category"
+    t.string   "author",              default: "Live News Writer"
+    t.string   "category",            default: "Live News"
     t.text     "content"
-    t.boolean  "event"
-    t.datetime "event_start"
+    t.boolean  "event",               default: false
+    t.datetime "event_start",         default: '2015-03-02 21:45:05'
     t.datetime "event_end"
-    t.string   "venue"
+    t.string   "venue",               default: "NITK"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
