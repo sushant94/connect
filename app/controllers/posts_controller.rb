@@ -6,6 +6,9 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
+        @post.author = ""
+        @post.venue = ""
+        @post.event_start = Time.now
     end
 
     def live_news
@@ -36,6 +39,7 @@ class PostsController < ApplicationController
 
     def create_live
         @post = Post.new(live_post_params)
+        @post.event_start = Time.now
         @post.live_news = 1
         if @post.save
             @post.user_id = current_user.id
